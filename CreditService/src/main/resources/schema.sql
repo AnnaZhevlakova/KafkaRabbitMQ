@@ -1,7 +1,7 @@
 create schema IF NOT exists netology;
 
 CREATE TABLE IF NOT exists netology.credit_applications (
-    id BIGINT PRIMARY KEY,
+    id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY ,
     amount DECIMAL(15,2) NOT NULL,
     term_months INT NOT NULL,
     income DECIMAL(15,2) NOT NULL,
@@ -13,7 +13,7 @@ CREATE TABLE IF NOT exists netology.credit_applications (
 
 
 CREATE table IF NOT exists netology.outbox_events (
-    id BIGINT PRIMARY KEY,
+    id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     event_type VARCHAR(100) NOT NULL,
     payload TEXT,
     published BOOLEAN DEFAULT false,

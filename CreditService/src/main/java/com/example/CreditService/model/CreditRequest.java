@@ -50,7 +50,11 @@ public class CreditRequest {
             return creditRating;
         }
 
-        public void setCreditRating(Integer creditRating) {
+    public Integer getCreditRating() {
+        return creditRating;
+    }
+
+    public void setCreditRating(Integer creditRating) {
             this.creditRating = creditRating;
         }
 

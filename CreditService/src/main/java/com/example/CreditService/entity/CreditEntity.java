@@ -78,6 +78,11 @@ public class CreditEntity {
     public BigDecimal getCurrentCreditLoad(){
         return currentCreditLoad;
     }
+
+    public void setCurrentCreditLoad(BigDecimal currentCreditLoad) {
+        this.currentCreditLoad = currentCreditLoad;
+    }
+
     public Integer GetCreditRating(){
         return creditRating;
     }

@@ -2,10 +2,12 @@ package com.example.CreditService.controller;
 
 import com.example.CreditService.model.CreditRequest;
 import com.example.CreditService.service.CreditService;
+import org.springframework.context.annotation.Scope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@Scope("request")
 @RestController
 @RequestMapping(("/api/credit"))
 public class CreditController {
