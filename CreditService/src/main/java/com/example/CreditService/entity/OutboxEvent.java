@@ -7,7 +7,7 @@ import java.time.ZonedDateTime;
 
 @Entity
 @Table(name = "outbox_events", schema = "netology")
-public class OutboxEvents {
+public class OutboxEvent {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,16 +25,16 @@ public class OutboxEvents {
     @Column(name = "created_at", nullable = false)
     private ZonedDateTime createdAt;
 
-   public OutboxEvents(){
+    public OutboxEvent() {
 
-   }
+    }
 
-    public OutboxEvents( long id,String eventType,String payload,boolean published,ZonedDateTime createdAt){
-       this.id = id;
-       this.eventType = eventType;
-       this.payload = payload;
-       this.published = published;
-       this.createdAt = createdAt;
+    public OutboxEvent(long id, String eventType, String payload, boolean published, ZonedDateTime createdAt) {
+        this.id = id;
+        this.eventType = eventType;
+        this.payload = payload;
+        this.published = published;
+        this.createdAt = createdAt;
 
     }
 
@@ -61,8 +61,9 @@ public class OutboxEvents {
     public void setPayload(String payload) {
         this.payload = payload;
     }
-    public boolean getPublished(){
-       return published;
+
+    public boolean getPublished() {
+        return published;
     }
 
     public void setPublished(boolean published) {

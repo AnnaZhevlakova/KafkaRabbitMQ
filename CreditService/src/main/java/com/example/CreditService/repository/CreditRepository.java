@@ -7,8 +7,6 @@ import org.springframework.stereotype.Repository;
 
 @Scope("request")
 @Repository
-public interface CreditRepository extends JpaRepository<CreditEntity,Long> {
-
-
+public interface CreditRepository extends JpaRepository<CreditEntity, Long> {
 
 }

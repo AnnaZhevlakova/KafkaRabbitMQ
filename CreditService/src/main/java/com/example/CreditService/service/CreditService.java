@@ -1,7 +1,7 @@
 package com.example.CreditService.service;
 
 import com.example.CreditService.entity.CreditEntity;
-import com.example.CreditService.entity.OutboxEvents;
+import com.example.CreditService.entity.OutboxEvent;
 import com.example.CreditService.enums.CreditOrderStatus;
 import com.example.CreditService.model.CreditRequest;
 import com.example.CreditService.repository.CreditRepository;
@@ -23,11 +23,12 @@ public class CreditService {
     private OutboxEventsRepository outboxEventsRepository;
     private final ObjectMapper mapper;
 
-    public CreditService(CreditRepository creditRepository,OutboxEventsRepository outboxEventsRepository,ObjectMapper mapper) {
+    public CreditService(CreditRepository creditRepository, OutboxEventsRepository outboxEventsRepository, ObjectMapper mapper) {
         this.creditRepository = creditRepository;
         this.outboxEventsRepository = outboxEventsRepository;
         this.mapper = mapper;
     }
+
     public long submit(CreditRequest request) {
         CreditEntity app = new CreditEntity();
         app.setAmount(request.getAmount());
@@ -45,7 +46,7 @@ public class CreditService {
         } catch (JsonProcessingException e) {
             throw new RuntimeException("Failed to serialize event", e);
         }
-        var outbox = new OutboxEvents();
+        var outbox = new OutboxEvent();
         outbox.setCreatedAt(ZonedDateTime.now());
         outbox.setPayload(payload);
         outbox.setPublished(false);
@@ -59,10 +60,9 @@ public class CreditService {
     }
 
 
-
-    public Optional <CreditOrderStatus> getStatus(long id) {
+    public Optional<CreditOrderStatus> getStatus(long id) {
         var result = creditRepository.findById(id);
-        if(result.isEmpty()){
+        if (result.isEmpty()) {
             return Optional.empty();
         }
         return Optional.of(result.get().getStatus());

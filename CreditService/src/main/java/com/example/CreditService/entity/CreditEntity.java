@@ -32,10 +32,11 @@ public class CreditEntity {
     @Column(name = "status", nullable = false)
     private CreditOrderStatus status;
 
-    public CreditEntity(){}
+    public CreditEntity() {
+    }
 
-    public CreditEntity(long id, BigDecimal amount, Integer term, BigDecimal userIncome, BigDecimal currentCreditLoad, Integer creditRating, CreditOrderStatus status){
-       this.id = id;
+    public CreditEntity(long id, BigDecimal amount, Integer term, BigDecimal userIncome, BigDecimal currentCreditLoad, Integer creditRating, CreditOrderStatus status) {
+        this.id = id;
         this.amount = amount;
         this.term = term;
         this.userIncome = userIncome;
@@ -52,7 +53,7 @@ public class CreditEntity {
         this.id = id;
     }
 
-    public BigDecimal getAmount(){
+    public BigDecimal getAmount() {
         return amount;
     }
 
@@ -60,7 +61,7 @@ public class CreditEntity {
         this.amount = amount;
     }
 
-    public Integer getTerm(){
+    public Integer getTerm() {
         return term;
     }
 
@@ -75,7 +76,8 @@ public class CreditEntity {
     public void setUserIncome(BigDecimal userIncome) {
         this.userIncome = userIncome;
     }
-    public BigDecimal getCurrentCreditLoad(){
+
+    public BigDecimal getCurrentCreditLoad() {
         return currentCreditLoad;
     }
 
@@ -83,7 +85,7 @@ public class CreditEntity {
         this.currentCreditLoad = currentCreditLoad;
     }
 
-    public Integer GetCreditRating(){
+    public Integer GetCreditRating() {
         return creditRating;
     }
 
