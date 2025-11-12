@@ -16,7 +16,6 @@ import java.time.ZonedDateTime;
 import java.util.Optional;
 
 @Scope("request")
-@Transactional
 @Service
 public class CreditService {
     private CreditRepository creditRepository;
@@ -29,6 +28,7 @@ public class CreditService {
         this.mapper = mapper;
     }
 
+    @Transactional
     public long submit(CreditRequest request) {
         CreditEntity app = new CreditEntity();
         app.setAmount(request.getAmount());
@@ -53,12 +53,9 @@ public class CreditService {
         outbox.setEventType("CreditApplicationSubmitted");
 
         outboxEventsRepository.save(outbox);
-
         return app.getId();
 
-
     }
-
 
     public Optional<CreditOrderStatus> getStatus(long id) {
         var result = creditRepository.findById(id);

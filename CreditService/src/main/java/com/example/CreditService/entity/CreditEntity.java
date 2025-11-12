@@ -3,7 +3,6 @@ package com.example.CreditService.entity;
 import com.example.CreditService.enums.CreditOrderStatus;
 import jakarta.persistence.*;
 
-
 import java.math.BigDecimal;
 
 @Entity

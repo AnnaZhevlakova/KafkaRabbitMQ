@@ -9,13 +9,9 @@ import java.math.BigDecimal;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CreditModel {
-    private Long id;
-    private BigDecimal amount;
-    private Integer term;
-    private BigDecimal userIncome;
-    private BigDecimal currentCreditLoad;
-    private String status;
+public class CreditDecisionModel {
+    private Long applicationId;
+    private boolean approved;
+    private BigDecimal approvedAmount;
+    private String message;
 }
-
-

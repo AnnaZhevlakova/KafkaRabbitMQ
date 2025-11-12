@@ -1,8 +1,6 @@
 package com.example.CreditService.entity;
 
 import jakarta.persistence.*;
-
-
 import java.time.ZonedDateTime;
 
 @Entity
